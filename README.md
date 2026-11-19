@@ -120,6 +120,16 @@ Screenshots above show the Ukrainian localization.
 
 ---
 
+## ☕ Support the project
+
+Cachalot Bay is an independent project. If you'd like to see more whales, more islands and more real science in it, you can buy me a coffee:
+
+<a href="https://send.monobank.ua/jar/67bdEU8ss8"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-Monobank-ff8a75?style=for-the-badge&logo=buymeacoffee&logoColor=white" alt="Buy me a coffee via Monobank"></a>
+
+Any bank card, Apple Pay or Google Pay. Starring the repo and sharing the [website](https://oleksandr-mykhailenko.github.io/cachalot-bay) helps too.
+
+---
+
 ## Sources
 
 - [Mascarene Islands and Associated Oceanic Features — IMMA factsheet](https://www.marinemammalhabitat.org/factsheets/mascarene-islands-associated-oceanic-features/) — IUCN Marine Mammal Protected Areas Task Force
