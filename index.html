@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cachalot Bay — a conservation tycoon about the sperm whales of Mauritius</title>
+<meta name="description" content="Cachalot Bay is a calm iOS conservation tycoon about the real resident sperm whales of west Mauritius. You manage boats, rules and research — the whales respond.">
+<meta property="og:title" content="Cachalot Bay — Ocean Keeper">
+<meta property="og:description" content="A calm conservation tycoon about the real sperm whales of west Mauritius.">
+<meta property="og:image" content="https://oleksandr-mykhailenko.github.io/cachalot-bay/screenshots/07-island-whales.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#a9dcdd; --mid:#7fb0d6; --deep:#4a6fa8; --abyss:#1d3557; --night:#0f2440;
+    --cream:#fcefe0; --coral:#ff8a75; --mint:#c9ecd9; --ink:#1d2b45;
+    --glass:rgba(255,255,255,.14); --glass-b:rgba(255,255,255,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Nunito,system-ui,sans-serif;color:#fff;line-height:1.6;
+    background:linear-gradient(180deg,var(--sky) 0%,var(--mid) 18%,var(--deep) 45%,var(--abyss) 75%,var(--night) 100%);
+    min-height:100vh;
+  }
+  h1,h2,h3{font-family:Fredoka,Nunito,sans-serif;line-height:1.15}
+  a{color:var(--cream)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:72px 0}
+  .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;font-weight:700;color:var(--mint);margin-bottom:10px}
+
+  /* hero */
+  .hero{padding:88px 0 56px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-20% -10% auto;height:120%;
+    background:repeating-linear-gradient(105deg,rgba(255,255,255,.12) 0 60px,transparent 60px 190px);pointer-events:none}
+  .hero h1{font-size:clamp(2.8rem,8vw,5rem);text-shadow:0 6px 30px rgba(29,53,87,.25)}
+  .hero .place{color:var(--cream);font-size:1.25rem;font-weight:600;margin-top:4px}
+  .hero p.lead{max-width:640px;margin:22px auto 0;font-size:1.2rem;color:#f4fbff}
+  .whale{width:min(300px,70vw);margin:28px auto 0;display:block;animation:swim 6s ease-in-out infinite}
+  @keyframes swim{50%{transform:translateY(-12px) rotate(-2deg)}}
+  .cta{display:inline-block;margin-top:30px;padding:16px 34px;border-radius:999px;background:var(--coral);
+    color:#fff;font-weight:700;text-decoration:none;box-shadow:0 10px 30px rgba(255,138,117,.45)}
+  .cta.alt{background:var(--glass);border:1px solid var(--glass-b);box-shadow:none;margin-left:10px}
+
+  .phones{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+  .phones img{width:220px;border-radius:30px;border:1px solid var(--glass-b);box-shadow:0 20px 50px rgba(15,36,64,.35)}
+
+  .card{background:var(--glass);border:1px solid var(--glass-b);border-radius:28px;padding:30px;backdrop-filter:blur(6px)}
+  .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .quote{font-size:1.5rem;font-family:Fredoka,sans-serif;text-align:center;max-width:760px;margin:0 auto}
+  h2{font-size:clamp(1.9rem,4.5vw,2.7rem);margin-bottom:18px}
+  h3{font-size:1.3rem;margin-bottom:8px}
+  p+p{margin-top:12px}
+
+  .facts .card .big{font-family:Fredoka,sans-serif;font-size:2.6rem;color:var(--mint);line-height:1}
+  .loop .step{font-family:Fredoka;font-size:.9rem;color:var(--cream);opacity:.85}
+  .split{display:grid;gap:40px;grid-template-columns:1.1fr .9fr;align-items:center}
+  .split.rev{grid-template-columns:.9fr 1.1fr}
+  .split ul{list-style:none;margin-top:14px}
+  .split li{padding:8px 0 8px 28px;position:relative}
+  .split li::before{content:"";position:absolute;left:4px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--mint)}
+  .shots{display:flex;gap:16px;justify-content:center}
+  .shots img{width:48%;max-width:230px;border-radius:24px;border:1px solid var(--glass-b);box-shadow:0 16px 40px rgba(15,36,64,.35)}
+  table{width:100%;border-collapse:collapse;margin-top:10px}
+  th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--glass-b);vertical-align:top}
+  th{color:var(--mint);font-weight:700}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  .vs .card{padding:22px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
+  .gallery img{width:100%;border-radius:20px;border:1px solid var(--glass-b);cursor:zoom-in;transition:transform .2s}
+  .gallery img:hover{transform:translateY(-4px)}
+  .sources li{margin:10px 0}
+  .sources small{opacity:.75}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .tags span{padding:7px 14px;border-radius:999px;background:var(--glass);border:1px solid var(--glass-b);font-weight:600;font-size:.92rem}
+  footer{padding:50px 0 70px;text-align:center;opacity:.8}
+  .lightbox{position:fixed;inset:0;background:rgba(10,24,44,.92);display:none;align-items:center;justify-content:center;padding:24px;z-index:9}
+  .lightbox.open{display:flex}
+  .lightbox img{max-height:92vh;max-width:92vw;border-radius:24px}
+  @media (max-width:760px){
+    .split,.split.rev{grid-template-columns:1fr}
+    .split.rev .shots{order:2}
+    .vs{grid-template-columns:1fr}
+    .phones img{width:42%}
+    .cta.alt{margin:12px 0 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Cachalot Bay</h1>
+    <div class="place">Mauritius · an Ocean Keeper game</div>
+    <svg class="whale" viewBox="0 0 520 260" aria-hidden="true">
+      <circle cx="40" cy="20" r="11" fill="#e3f4f6" opacity=".8"/><circle cx="64" cy="10" r="7" fill="#e3f4f6" opacity=".8"/>
+      <path d="M78 104 C60 70 66 40 96 22 C82 52 88 80 100 98Z" fill="#d6eef2" opacity=".85"/>
+      <polygon points="40,120 72,96 210,92 260,102 160,180 50,200" fill="#7fb6dc"/>
+      <polygon points="40,120 50,200 30,150" fill="#6a9fd0"/>
+      <polygon points="40,120 150,140 50,200" fill="#6b98cf"/>
+      <polygon points="150,140 260,102 252,180 160,180" fill="#5b87c2"/>
+      <polygon points="260,102 420,130 252,180" fill="#6c94c9"/>
+      <polygon points="252,180 420,130 360,190" fill="#557fbd"/>
+      <polygon points="420,130 500,82 440,165" fill="#6e98cc"/>
+      <polygon points="420,130 440,165 500,230" fill="#4f78b8"/>
+      <path d="M58 196 C110 222 190 214 252 188 C200 196 120 204 58 196Z" fill="#f6ead8"/>
+      <polygon points="190,196 238,206 214,236" fill="#4f78b8"/>
+      <circle cx="100" cy="138" r="13" fill="#24375c"/><circle cx="96" cy="133" r="4" fill="#fff"/>
+      <circle cx="82" cy="160" r="14" fill="#c98a9a" opacity=".55"/>
+    </svg>
+    <p class="lead">A calm conservation tycoon about the <strong>real</strong> resident sperm whales of west Mauritius. You run boats, rules, money and research. <strong>You never control the whales</strong> — they respond to what you do.</p>
+    <a class="cta" href="#why">Why it matters</a>
+    <a class="cta alt" href="#screens">See screenshots</a>
+
+    <div class="phones">
+      <img src="screenshots/01-menu.jpg" alt="Main menu of Cachalot Bay">
+      <img src="screenshots/07-island-whales.jpg" alt="The island with whales and tour boats in the bay">
+      <img src="screenshots/11-evening-log.jpg" alt="Evening log summarising the day">
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="quote">In the real ocean, humans are the variable.<br>The game is built around that idea.</p>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="eyebrow">Why this game exists</div>
+    <h2>Learn by consequence, not by fact card</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>See it happen</h3>
+        <p>Most nature games hand you a fact and move on. Here you find out why a 100-metre viewing distance matters — because your whales stopped coming back.</p>
+      </div>
+      <div class="card">
+        <h3>Work it out yourself</h3>
+        <p>The goal: by the end, a player can explain <em>why</em> Mauritius banned swimming with whales in 2023, because they re-derived the rule from first principles.</p>
+      </div>
+      <div class="card">
+        <h3>Calm and hopeful</h3>
+        <p>No guilt, no game-over screens. Whales never die from ordinary play. The consequence is absence — and they can be brought back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="wrap">
+    <div class="eyebrow">Built on real science</div>
+    <h2>Not a made-up island</h2>
+    <p style="max-width:720px">Mauritius has one of the best-documented sperm whale populations in the world. Nearly every system in the game maps onto something real.</p>
+    <div class="grid" style="margin-top:26px">
+      <div class="card"><div class="big">101</div><p>individual sperm whales photo-identified off west and south-west Mauritius between 2008 and 2013.</p></div>
+      <div class="card"><div class="big">19</div><p>of them resident, living in three social units and returning to the same waters for six years. Mostly females with calves.</p></div>
+      <div class="card"><div class="big">22</div><p>cetacean species in the Mascarene Islands Important Marine Mammal Area, linking Mauritius, Réunion, La Pérouse Seamount and Rodrigues.</p></div>
+      <div class="card"><div class="big">100&nbsp;m</div><p>minimum viewing distance set in October 2023, when Mauritius banned swimming with whales after a social-media "whale-chasing" boom.</p></div>
+      <div class="card"><div class="big">1970 → 1986</div><p>Sperm whales were listed as endangered in the US in 1970, but the commercial whaling moratorium only took effect in 1986.</p></div>
+      <div class="card"><div class="big">Every fact</div><p>shown in the game carries a citation to a real source — a scientific paper or an authority such as IUCN or NOAA.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="loop">
+  <div class="wrap">
+    <div class="eyebrow">How it plays</div>
+    <h2>One day at a time</h2>
+    <div class="grid">
+      <div class="card"><div class="step">MORNING</div><h3>Plan</h3><p>Build, set rules, send out survey and patrol boats.</p></div>
+      <div class="card"><div class="step">DAY</div><h3>The bay lives</h3><p>Whales move by their own logic. Tour boats follow your rules — or don't. Things go right and wrong without you.</p></div>
+      <div class="card"><div class="step">EVENING</div><h3>The log</h3><p>Who was sighted, what you learned, what you earned, and what went wrong.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">The central tension</div>
+      <h2>Tourism pays for everything</h2>
+      <p>Unregulated tourism drives the whales away. You write the rules every operator in the bay must follow:</p>
+      <ul>
+        <li>How many tour licences to issue</li>
+        <li>Minimum approach distance — 50, 100, 200 or 300 m</li>
+        <li>Maximum boats per sighting</li>
+        <li>Swimming with whales — allowed or not</li>
+        <li>Seasonal closures</li>
+      </ul>
+      <div class="vs">
+        <div class="card"><h3>Strict rules</h3><p>Calmer whales. Less money. Unhappy operators.</p></div>
+        <div class="card"><h3>Lax rules</h3><p>Money now. Empty water later.</p></div>
+      </div>
+    </div>
+    <div class="shots">
+      <img src="screenshots/09-rules.jpg" alt="Licence rules screen">
+      <img src="screenshots/06-island-morning.jpg" alt="Morning in the bay">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split rev">
+    <div class="shots">
+      <img src="screenshots/03-invest-prices.jpg" alt="Investments screen">
+      <img src="screenshots/04-build-timer.jpg" alt="Building with a timer">
+    </div>
+    <div>
+      <div class="eyebrow">Resources</div>
+      <h2>Whales are not a number</h2>
+      <table>
+        <tr><th>Resource</th><th>Earned by</th><th>Spent on</th></tr>
+        <tr><td><strong>Funding</strong></td><td>Licence fees, grants, donations</td><td>Boats, equipment, construction</td></tr>
+        <tr><td><strong>Knowledge</strong></td><td>Surveys, photo-ID, acoustics</td><td>Research and understanding</td></tr>
+        <tr><td><strong>Standing</strong></td><td>Jobs, education, visible results</td><td>Passing rules the community backs</td></tr>
+      </table>
+      <p style="margin-top:16px">Whales are individuals with families and a memory of how they were treated — never a counter that goes up.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">Photo-ID &amp; facts</div>
+      <h2>From silhouette to someone</h2>
+      <p>Every whale starts as an unknown silhouette. Build a research station, photograph them, and they become individuals in a social unit you recognise when it returns — mirroring the real photo-identification work done off Mauritius.</p>
+      <p>Facts unlock when the game has just shown you why they matter, each with its source. Reading one even speeds up construction.</p>
+    </div>
+    <div class="shots">
+      <img src="screenshots/10-catalogue.jpg" alt="Whale catalogue">
+      <img src="screenshots/05-fact-card.jpg" alt="Fact card with its source">
+    </div>
+  </div>
+</section>
+
+<section id="screens">
+  <div class="wrap">
+    <div class="eyebrow">Screenshots</div>
+    <h2>The bay, from dawn to evening</h2>
+    <div class="gallery">
+      <img src="screenshots/01-menu.jpg" alt="Main menu">
+      <img src="screenshots/02-island-dawn.jpg" alt="Dawn over the island">
+      <img src="screenshots/06-island-morning.jpg" alt="Morning in the bay">
+      <img src="screenshots/07-island-whales.jpg" alt="Whales around the island">
+      <img src="screenshots/08-island-low-angle.jpg" alt="Island from a low angle">
+      <img src="screenshots/03-invest-prices.jpg" alt="Investments">
+      <img src="screenshots/04-build-timer.jpg" alt="Construction timer">
+      <img src="screenshots/09-rules.jpg" alt="Licence rules">
+      <img src="screenshots/10-catalogue.jpg" alt="Whale catalogue">
+      <img src="screenshots/05-fact-card.jpg" alt="Fact card">
+      <img src="screenshots/11-evening-log.jpg" alt="Evening log">
+    </div>
+    <p style="margin-top:14px;opacity:.8">Screenshots show the Ukrainian localization.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap grid">
+    <div class="card">
+      <div class="eyebrow">Coming next</div>
+      <h3>Growing the bay</h3>
+      <ul style="margin:10px 0 0 18px">
+        <li>Hydrophone array — hear whales you can't see, and see ship noise on the map</li>
+        <li>Mooring buoys, ranger post, patrol boat, visitor centre</li>
+        <li>Threats as lessons: disturbance, vessel strike, noise, entanglement, plastic</li>
+        <li>A knowledge tree: deep foraging, dive physiology, codas, calf-rearing</li>
+        <li>Expansion to Réunion, La Pérouse Seamount and Rodrigues on a 3D globe</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Built with</div>
+      <h3>Native iOS</h3>
+      <p>An iPhone game for iOS 17+, with a hand-built low-poly art style.</p>
+      <div class="tags"><span>Swift</span><span>SwiftUI</span><span>SceneKit</span><span>SpriteKit</span><span>SwiftData</span><span>Kenney CC0 assets</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">Sources</div>
+    <h2>Where the facts come from</h2>
+    <ul style="list-style:none">
+      <li><a href="https://www.marinemammalhabitat.org/factsheets/mascarene-islands-associated-oceanic-features/">Mascarene Islands and Associated Oceanic Features — IMMA factsheet</a><br><small>IUCN Marine Mammal Protected Areas Task Force</small></li>
+      <li><a href="https://archimer.ifremer.fr/doc/00779/89069/">Underwater photo-identification of sperm whales (Physeter macrocephalus) off Mauritius Island</a></li>
+      <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8074673/">Kin relationships in cultural species of the marine realm: a matrilineal social group of sperm whales off Mauritius island</a></li>
+      <li><a href="https://www.rfa.org/english/news/environment/whales-watching-china-mauritius-tonga-10052024092941.html">Mauritius clamps down on social media "whale-chasing" craze</a><br><small>RFA, October 2024</small></li>
+      <li><a href="https://www.fisheries.noaa.gov/species/sperm-whale">Sperm Whale species profile</a><br><small>NOAA Fisheries</small></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Made by <a href="https://github.com/oleksandr-mykhailenko">Oleksandr Mykhailenko</a> ·
+    <a href="https://github.com/oleksandr-mykhailenko/cachalot-bay">View on GitHub</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lb" role="dialog" aria-label="Screenshot preview"><img alt=""></div>
+<script>
+  const lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+  document.querySelectorAll('.gallery img').forEach(i=>i.addEventListener('click',()=>{lbImg.src=i.src;lbImg.alt=i.alt;lb.classList.add('open')}));
+  lb.addEventListener('click',()=>lb.classList.remove('open'));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+</script>
+</body>
+</html>
